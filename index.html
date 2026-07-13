@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>براقيو - للنظافة الاحترافية</title>
+    <meta name="description" content="براقيو - خدمات تنظيف، تعقيم، مكافحة حشرات، كشف تسربات وعزل في الرياض. جودة واحترافية مع ضمان.">
+    <meta name="keywords" content="تنظيف, تعقيم, مكافحة حشرات, كشف تسربات, عزل, براقيو, نظافة">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        html {
+            scroll-behavior: smooth;
+        }
+        body {
+            font-family: 'Tajawal', 'Segoe UI', sans-serif;
+            line-height: 1.8;
+            background: #ffffff;
+            color: #222222;
+        }
+
+        /* ========== NAVBAR ========== */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 12px 50px;
+            background: #ffffff;
+            position: sticky;
+            top: 0;
+            z-index: 999;
+            box-shadow: 0 2px 20px rgba(0,0,0,0.06);
+        }
+        .navbar .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: #0d3b66;
+        }
+        .navbar .logo span {
+            color: #f4a261;
+        }
+        .navbar ul {
+            list-style: none;
+            display: flex;
+            gap: 30px;
+        }
+        .navbar ul li a {
+            text-decoration: none;
+            color: #333333;
+            font-weight: 500;
+            font-size: 1rem;
+            transition: 0.3s;
+        }
+        .navbar ul li a:hover {
+            color: #f4a261;
+        }
+        .btn-nav {
+            background: #f4a261;
+            color: #ffffff !important;
+            padding: 10px 25px;
+            border-radius: 50px;
+            font-weight: bold;
+        }
+        .btn-nav:hover {
+            background: #e07b3a;
+            color: #ffffff !important;
+        }
+        .mobile-menu {
+            display: none;
+            font-size: 2rem;
+            cursor: pointer;
+            color: #0d3b66;
+        }
+
+        /* ========== HERO ========== */
+        .hero {
+            height: 85vh;
+            background: linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.45)), url('hero-bg.jpg');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: #ffffff;
+            padding: 20px;
+        }
+        .hero-content h1 {
+            font-size: 3rem;
+            margin-bottom: 15px;
+            color: #ffffff;
+        }
+        .hero-content h1 span {
+            color: #f4a261;
+        }
+        .hero-content p {
+            font-size: 1.3rem;
+            margin-bottom: 35px;
+            opacity: 0.9;
+        }
+        .btn-hero {
+            display: inline-block;
+            background: #f4a261;
+            color: #ffffff;
+            padding: 15px 50px;
+            border-radius: 50px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            text-decoration: none;
+            transition: 0.3s;
+        }
+        .btn-hero:hover {
+            background: #e07b3a;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(244, 162, 97, 0.4);
+        }
+
+        /* ========== ABOUT PREVIEW ========== */
+        .section {
+            padding: 80px 50px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            color: #0d3b66;
+            margin-bottom: 15px;
+        }
+        .section-line {
+            width: 80px;
+            height: 4px;
+            background: #f4a261;
+            margin: 0 auto 50px;
+            border-radius: 2px;
+        }
+        .about-preview {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+            font-size: 1.15rem;
+            color: #555555;
+        }
+        .btn-outline {
+            display: inline-block;
+            margin-top: 30px;
+            border: 2px solid #f4a261;
+            color: #f4a261;
+            padding: 12px 35px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+        .btn-outline:hover {
+            background: #f4a261;
+            color: #ffffff;
+        }
+
+        /* ========== SERVICES GRID ========== */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .service-link {
+            display: block;
+            background: #fafafa;
+            padding: 25px 15px;
+            text-align: center;
+            border-radius: 15px;
+            text-decoration: none;
+            color: #333333;
+            font-weight: 500;
+            transition: 0.3s;
+            border: 1px solid #eeeeee;
+        }
+        .service-link:hover {
+            background: #f4a261;
+            color: #ffffff;
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(244, 162, 97, 0.3);
+        }
+        .services-category {
+            font-size: 1.6rem;
+            color: #0d3b66;
+            margin: 40px 0 20px;
+            text-align: center;
+            grid-column: 1 / -1;
+        }
+
+        /* ========== CTA ========== */
+        .cta {
+            background: #0d3b66;
+            color: #ffffff;
+            text-align: center;
+            padding: 60px 30px;
+        }
+        .cta h2 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+        .cta .btn-hero {
+            background: #f4a261;
+        }
+
+        /* ========== FOOTER ========== */
+        footer {
+            background: #111111;
+            color: #cccccc;
+            text-align: center;
+            padding: 25px;
+            font-size: 0.95rem;
+        }
+        footer span {
+            color: #f4a261;
+        }
+
+        /* ========== WHATSAPP ========== */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 30px;
+            left: 30px;
+            background: #25D366;
+            color: #ffffff;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            text-decoration: none;
+            box-shadow: 0 8px 25px rgba(37, 211, 102, 0.5);
+            z-index: 1000;
+        }
+
+        /* ========== RESPONSIVE ========== */
+        @media (max-width: 768px) {
+            .navbar {
+                padding: 12px 25px;
+            }
+            .navbar ul {
+                display: none;
+                position: absolute;
+                top: 60px;
+                right: 0;
+                background: #ffffff;
+                width: 100%;
+                flex-direction: column;
+                text-align: center;
+                padding: 25px 0;
+                gap: 20px;
+                box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            }
+            .navbar ul.active {
+                display: flex;
+            }
+            .mobile-menu {
+                display: block;
+            }
+            .hero-content h1 {
+                font-size: 2rem;
+            }
+            .hero-content p {
+                font-size: 1rem;
+            }
+            .section {
+                padding: 50px 20px;
+            }
+            .section-title {
+                font-size: 1.8rem;
+            }
+            .services-grid {
+                grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ========== NAVBAR ========== -->
+    <nav class="navbar">
+        <div class="logo"><img src="logo.png" alt="براقيو" style="height: 50px;"></div>
+        <div class="mobile-menu" onclick="toggleMenu()">☰</div>
+        <ul id="navLinks">
+            <li><a href="index.html">الرئيسية</a></li>
+            <li><a href="about.html">من نحن</a></li>
+            <li><a href="#services">خدماتنا</a></li>
+            <li><a href="gallery.html">معرض الأعمال</a></li>
+            <li><a href="blog.html">المدونة</a></li>
+            <li><a href="faq.html">الأسئلة الشائعة</a></li>
+            <li><a href="contact.html" class="btn-nav">اتصل بنا</a></li>
+        </ul>
+    </nav>
+
+    <!-- ========== HERO ========== -->
+  <section class="hero">
+</section>
+
+<section style="text-align: center; padding: 60px 20px 40px; background: #fafafa;">
+    <h2 style="font-size: 2.5rem; color: #0d3b66; font-weight: 900; margin-bottom: 15px; letter-spacing: 1px;">أهلاً بكم في <span style="color: #f4a261;">براقيو</span></h2>
+    <p style="font-size: 1.4rem; color: #444444; font-weight: 600; margin-bottom: 30px; line-height: 1.8;">خدمات تنظيف، تعقيم، مكافحة حشرات، كشف تسربات وعزل بجودة واحترافية</p>
+    <a href="https://wa.me/201210004556" style="display: inline-block; background: #f4a261; color: #ffffff; padding: 16px 55px; border-radius: 50px; font-size: 1.3rem; font-weight: bold; text-decoration: none; transition: 0.3s; box-shadow: 0 8px 25px rgba(244,162,97,0.4);">📱 احجز الآن</a>
+</section>
+
+    <!-- ========== ABOUT PREVIEW ========== -->
+    <section class="section">
+        <h2 class="section-title">من نحن</h2>
+        <div class="section-line"></div>
+        <div class="about-preview">
+            <p>براقيو هي شركة متخصصة في خدمات التنظيف والتعقيم ومكافحة الحشرات وكشف التسربات والعزل. نقدم حلولاً متكاملة لعملائنا بأعلى معايير الجودة والاحترافية. فريقنا المدرب والمعدات الحديثة تضمن لكم بيئة نظيفة وآمنة.</p>
+            <a href="about.html" class="btn-outline">اقرأ المزيد عنا ←</a>
+        </div>
+    </section>
+
+    <!-- ========== SERVICES ========== -->
+    <section class="section" id="services">
+        <h2 class="section-title">خدماتنا</h2>
+        <div class="section-line"></div>
+
+        <div class="services-grid">
+            <div class="services-category">🧹 خدمات التنظيف</div>
+            <a href="تنظيف-المكيفات.html" class="service-link">تنظيف المكيفات</a>
+            <a href="تنظيف-الشقق.html" class="service-link">تنظيف الشقق</a>
+            <a href="تنظيف-الفلل.html" class="service-link">تنظيف الفلل</a>
+            <a href="تنظيف-الكنب.html" class="service-link">تنظيف الكنب</a>
+            <a href="تنظيف-السجاد.html" class="service-link">تنظيف السجاد</a>
+            <a href="تنظيف-الستائر.html" class="service-link">تنظيف الستائر</a>
+            <a href="تنظيف-المراتب.html" class="service-link">تنظيف المراتب</a>
+            <a href="تنظيف-المطابخ.html" class="service-link">تنظيف المطابخ</a>
+            <a href="تنظيف-الحمامات.html" class="service-link">تنظيف الحمامات</a>
+            <a href="تنظيف-الواجهات-الزجاجية.html" class="service-link">تنظيف الواجهات الزجاجية</a>
+            <a href="تنظيف-واجهات-المباني.html" class="service-link">تنظيف واجهات المباني</a>
+            <a href="تنظيف-الخزانات-العلوية.html" class="service-link">تنظيف الخزانات العلوية</a>
+            <a href="تنظيف-الخزانات-الأرضية.html" class="service-link">تنظيف الخزانات الأرضية</a>
+            <a href="تنظيف-المساجد.html" class="service-link">تنظيف المساجد</a>
+            <a href="تنظيف-المدارس.html" class="service-link">تنظيف المدارس</a>
+            <a href="تنظيف-الشركات.html" class="service-link">تنظيف الشركات</a>
+
+            <a href="تنظيف-بعد-الحريق.html" class="service-link">تنظيف بعد الحريق</a>
+            <a href="تنظيف-قبل-الانتقال.html" class="service-link">تنظيف قبل الانتقال</a>
+
+            <div class="services-category">🧪 خدمات التعقيم</div>
+            <a href="تعقيم-المنشآت.html" class="service-link">تعقيم المنشآت</a>
+
+          <div class="services-category">🐜 مكافحة الحشرات</div>
+<a href="مكافحة-الحشرات.html" class="service-link">مكافحة جميع أنواع الحشرات</a>
+
+            <div class="services-category">🔧 كشف التسربات والعزل</div>
+<a href="كشف-تسربات-المياه.html" class="service-link">كشف تسربات المياه</a>
+<a href="عزل-الأسطح-والخزانات.html" class="service-link">عزل الأسطح والخزانات</a>
+
+            <div class="services-category">📋 خدمات إضافية</div>
+            <a href="عقود-النظافة-الشهرية.html" class="service-link">عقود النظافة الشهرية</a>
+        </div>
+    </section>
+
+    <!-- ========== CTA ========== -->
+    <section class="cta">
+        <h2>جاهزين لخدمتك في أي وقت</h2>
+        <a href="https://wa.me/201210004556" class="btn-hero">📱 تواصل معنا واتساب</a>
+    </section>
+
+    <!-- ========== FOOTER ========== -->
+    <footer>
+        <p>جميع الحقوق محفوظة © 2024 <span>شركة براقيو</span></p>
+    </footer>
+
+    <!-- ========== WHATSAPP FLOAT ========== -->
+    
+
+    <!-- ========== SCRIPT ========== -->
+    <script>
+        function toggleMenu() {
+            document.getElementById('navLinks').classList.toggle('active');
+        }
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                document.getElementById('navLinks').classList.remove('active');
+                document.querySelector(this.getAttribute('href')).scrollIntoView({ behavior: 'smooth' });
+            });
+        });
+    </script>
+    <!-- أزرار التواصل العائمة -->
+<style>
+    .floating-container {
+        position: fixed;
+        bottom: 30px;
+        left: 30px;
+        z-index: 9999;
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+    }
+    .float-btn {
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 28px;
+        text-decoration: none;
+        box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+        transition: all 0.3s ease;
+        position: relative;
+        animation: floatPulse 2s infinite;
+    }
+    .float-btn:hover {
+        transform: translateY(-8px) scale(1.1);
+        box-shadow: 0 15px 35px rgba(0,0,0,0.4);
+    }
+    .float-whatsapp {
+        background: #25D366;
+        color: #ffffff;
+    }
+    .float-call {
+        background: #f4a261;
+        color: #ffffff;
+    }
+    .float-btn .tooltip {
+        position: absolute;
+        left: 75px;
+        background: #333333;
+        color: #ffffff;
+        padding: 8px 15px;
+        border-radius: 25px;
+        font-size: 14px;
+        font-weight: bold;
+        white-space: nowrap;
+        opacity: 0;
+        visibility: hidden;
+        transition: all 0.3s ease;
+    }
+    .float-btn:hover .tooltip {
+        opacity: 1;
+        visibility: visible;
+    }
+    @keyframes floatPulse {
+        0% { box-shadow: 0 8px 25px rgba(0,0,0,0.3); }
+        50% { box-shadow: 0 8px 35px rgba(0,0,0,0.5); }
+        100% { box-shadow: 0 8px 25px rgba(0,0,0,0.3); }
+    }
+</style>
+
+<div class="floating-container">
+    <a href="https://wa.me/201210004556" class="float-btn float-whatsapp" target="_blank" title="واتساب">
+        💬
+        <span class="tooltip">واتساب</span>
+    </a>
+    <a href="tel:+201210004556" class="float-btn float-call" title="اتصال">
+        📞
+        <span class="tooltip">اتصل الآن</span>
+    </a>
+</div>
+
+</body>
+</html>
