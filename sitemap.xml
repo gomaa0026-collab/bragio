@@ -124,4 +124,12 @@
     <loc>https://bragio1.github.io/bragio/تنظيف-المستشفيات.html</loc>
     <priority>0.90</priority>
   </url>
+  <url>
+    <loc>https://bragio1.github.io/bragio/reviews.html</loc>
+    <priority>0.80</priority>
+</url>
+<url>
+    <loc>https://bragio1.github.io/bragio/تنظيف-الاحياء.html</loc>
+    <priority>0.90</priority>
+</url>
 </urlset>
