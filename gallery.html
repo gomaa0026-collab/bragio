@@ -21,25 +21,28 @@
         .page-header h1 { font-size: 3rem; }
         .page-header h1 span { color: #f4a261; }
 
-        .section { padding: 80px 50px; max-width: 1300px; margin: 0 auto; }
+        .section { padding: 80px 50px; max-width: 1400px; margin: 0 auto; }
         .section h2 { font-size: 2rem; color: #0d3b66; margin-bottom: 20px; text-align: center; }
         .section-line { width: 80px; height: 4px; background: #f4a261; margin: 0 auto 40px; border-radius: 2px; }
 
-        .gallery-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 25px; }
+        .gallery-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
         .gallery-item { border-radius: 15px; overflow: hidden; box-shadow: 0 5px 20px rgba(0,0,0,0.1); background: #ffffff; }
-        .gallery-item img { width: 100%; height: 300px; object-fit: cover; display: block; }
-        .gallery-info { padding: 20px; text-align: center; }
-        .gallery-info h3 { color: #0d3b66; margin-bottom: 5px; }
-        .gallery-info p { color: #777777; font-size: 0.9rem; }
-
-        .cta { background: #0d3b66; color: #ffffff; text-align: center; padding: 60px 30px; }
-        .cta h2 { font-size: 2rem; margin-bottom: 20px; }
-        .btn-hero { display: inline-block; background: #f4a261; color: #ffffff; padding: 15px 50px; border-radius: 50px; font-size: 1.2rem; font-weight: bold; text-decoration: none; transition: 0.3s; }
-        .btn-hero:hover { background: #e07b3a; }
+        .gallery-item img { width: 100%; height: 250px; object-fit: cover; display: block; }
+        .gallery-info { padding: 15px; text-align: center; }
+        .gallery-info h3 { color: #0d3b66; margin-bottom: 5px; font-size: 1rem; }
+        .gallery-info p { color: #777777; font-size: 0.85rem; }
 
         footer { background: #111111; color: #cccccc; text-align: center; padding: 25px; font-size: 0.95rem; }
         footer span { color: #f4a261; }
-        .whatsapp-float { position: fixed; bottom: 30px; left: 30px; background: #25D366; color: #ffffff; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 2rem; text-decoration: none; box-shadow: 0 8px 25px rgba(37, 211, 102, 0.5); z-index: 1000; }
+
+        .floating-container{position:fixed;bottom:30px;left:30px;z-index:9999;display:flex;flex-direction:column;gap:15px;}
+        .float-btn{width:60px;height:60px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:28px;text-decoration:none;box-shadow:0 8px 25px rgba(0,0,0,0.3);transition:all 0.3s ease;position:relative;animation:floatPulse 2s infinite;}
+        .float-btn:hover{transform:translateY(-8px) scale(1.1);box-shadow:0 15px 35px rgba(0,0,0,0.4);}
+        .float-whatsapp{background:#25D366;color:#fff;}
+        .float-call{background:#f4a261;color:#fff;}
+        .float-btn .tooltip{position:absolute;left:75px;background:#333;color:#fff;padding:8px 15px;border-radius:25px;font-size:14px;font-weight:bold;white-space:nowrap;opacity:0;visibility:hidden;transition:all 0.3s ease;}
+        .float-btn:hover .tooltip{opacity:1;visibility:visible;}
+        @keyframes floatPulse{0%{box-shadow:0 8px 25px rgba(0,0,0,0.3)}50%{box-shadow:0 8px 35px rgba(0,0,0,0.5)}100%{box-shadow:0 8px 25px rgba(0,0,0,0.3)}}
 
         @media (max-width: 768px) {
             .navbar { padding: 12px 25px; }
@@ -48,16 +51,8 @@
             .mobile-menu { display: block; }
             .page-header h1 { font-size: 2rem; }
             .section { padding: 50px 20px; }
-            .gallery-grid { grid-template-columns: 1fr; }
+            .gallery-grid { grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); }
         }
-        .floating-container{position:fixed;bottom:30px;left:30px;z-index:9999;display:flex;flex-direction:column;gap:15px;}
-.float-btn{width:60px;height:60px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:28px;text-decoration:none;box-shadow:0 8px 25px rgba(0,0,0,0.3);transition:all 0.3s ease;position:relative;animation:floatPulse 2s infinite;}
-.float-btn:hover{transform:translateY(-8px) scale(1.1);box-shadow:0 15px 35px rgba(0,0,0,0.4);}
-.float-whatsapp{background:#25D366;color:#fff;}
-.float-call{background:#f4a261;color:#fff;}
-.float-btn .tooltip{position:absolute;left:75px;background:#333;color:#fff;padding:8px 15px;border-radius:25px;font-size:14px;font-weight:bold;white-space:nowrap;opacity:0;visibility:hidden;transition:all 0.3s ease;}
-.float-btn:hover .tooltip{opacity:1;visibility:visible;}
-@keyframes floatPulse{0%{box-shadow:0 8px 25px rgba(0,0,0,0.3)}50%{box-shadow:0 8px 35px rgba(0,0,0,0.5)}100%{box-shadow:0 8px 25px rgba(0,0,0,0.3)}}
     </style>
 </head>
 <body>
@@ -65,7 +60,7 @@
     <nav class="navbar">
         <div class="logo"><img src="logo.png" alt="براقيو"></div>
         <a href="index.html" style="text-decoration: none; font-size: 0.9rem; margin-left: 15px; color: #0d3b66; font-weight: bold; background: #f0f0f0; padding: 6px 12px; border-radius: 20px;">الرئيسية</a>
-<div class="mobile-menu" onclick="toggleMenu()">☰</div>
+        <div class="mobile-menu" onclick="toggleMenu()">☰</div>
         <ul id="navLinks">
             <li><a href="index.html">الرئيسية</a></li>
             <li><a href="about.html">من نحن</a></li>
@@ -83,80 +78,57 @@
     </section>
 
     <section class="section">
-        <h2>أعمال التنظيف</h2>
+        <h2>جميع أعمالنا</h2>
         <div class="section-line"></div>
         <div class="gallery-grid">
-            <div class="gallery-item">
-                <img src="gallery-1.jpg" alt="تنظيف سجاد">
-                <div class="gallery-info">
-                    <h3>تنظيف سجاد</h3>
-                    <p>قبل وبعد</p>
-                </div>
-            </div>
-            <div class="gallery-item">
-                <img src="gallery-2.jpg" alt="تنظيف مجالس">
-                <div class="gallery-info">
-                    <h3>تنظيف مجالس</h3>
-                    <p>قبل وبعد</p>
-                </div>
-            </div>
-            <div class="gallery-item">
-                <img src="gallery-3.jpg" alt="تنظيف مكيفات">
-                <div class="gallery-info">
-                    <h3>تنظيف مكيفات</h3>
-                    <p>قبل وبعد</p>
-                </div>
-            </div>
-            <div class="gallery-item">
-                <img src="gallery-4.jpg" alt="تنظيف فلل">
-                <div class="gallery-info">
-                    <h3>تنظيف فلل</h3>
-                    <p>قبل وبعد</p>
-                </div>
-            </div>
-            <div class="gallery-item">
-                <img src="gallery-5.jpg" alt="تنظيف خزانات">
-                <div class="gallery-info">
-                    <h3>تنظيف خزانات</h3>
-                    <p>قبل وبعد</p>
-                </div>
-            </div>
-            <div class="gallery-item">
-                <img src="gallery-6.jpg" alt="مكافحة حشرات">
-                <div class="gallery-info">
-                    <h3>مكافحة حشرات</h3>
-                    <p>قبل وبعد</p>
-                </div>
-            </div>
+            <!-- 1-6 تنظيف المكيفات --><div class="gallery-item"><img src="gallery-(1).jpg" alt="تنظيف مكيفات"><div class="gallery-info"><h3>تنظيف مكيفات</h3></div></div><div class="gallery-item"><img src="gallery-(2).jpg" alt="تنظيف مكيفات"><div class="gallery-info"><h3>تنظيف مكيفات</h3></div></div><div class="gallery-item"><img src="gallery-(3).jpg" alt="تنظيف مكيفات"><div class="gallery-info"><h3>تنظيف مكيفات</h3></div></div><div class="gallery-item"><img src="gallery-(4).jpg" alt="تنظيف مكيفات"><div class="gallery-info"><h3>تنظيف مكيفات</h3></div></div><div class="gallery-item"><img src="gallery-(5).jpg" alt="تنظيف مكيفات"><div class="gallery-info"><h3>تنظيف مكيفات</h3></div></div><div class="gallery-item"><img src="gallery-(6).jpg" alt="تنظيف مكيفات"><div class="gallery-info"><h3>تنظيف مكيفات</h3></div></div>
+            <!-- 7-12 تنظيف الشقق --><div class="gallery-item"><img src="gallery-(7).jpg" alt="تنظيف شقق"><div class="gallery-info"><h3>تنظيف شقق</h3></div></div><div class="gallery-item"><img src="gallery-(8).jpg" alt="تنظيف شقق"><div class="gallery-info"><h3>تنظيف شقق</h3></div></div><div class="gallery-item"><img src="gallery-(9).jpg" alt="تنظيف شقق"><div class="gallery-info"><h3>تنظيف شقق</h3></div></div><div class="gallery-item"><img src="gallery-(10).jpg" alt="تنظيف شقق"><div class="gallery-info"><h3>تنظيف شقق</h3></div></div><div class="gallery-item"><img src="gallery-(11).jpg" alt="تنظيف شقق"><div class="gallery-info"><h3>تنظيف شقق</h3></div></div><div class="gallery-item"><img src="gallery-(12).jpg" alt="تنظيف شقق"><div class="gallery-info"><h3>تنظيف شقق</h3></div></div>
+            <!-- 13-18 تنظيف الفلل --><div class="gallery-item"><img src="gallery-(13).jpg" alt="تنظيف فلل"><div class="gallery-info"><h3>تنظيف فلل</h3></div></div><div class="gallery-item"><img src="gallery-(14).jpg" alt="تنظيف فلل"><div class="gallery-info"><h3>تنظيف فلل</h3></div></div><div class="gallery-item"><img src="gallery-(15).jpg" alt="تنظيف فلل"><div class="gallery-info"><h3>تنظيف فلل</h3></div></div><div class="gallery-item"><img src="gallery-(16).jpg" alt="تنظيف فلل"><div class="gallery-info"><h3>تنظيف فلل</h3></div></div><div class="gallery-item"><img src="gallery-(17).jpg" alt="تنظيف فلل"><div class="gallery-info"><h3>تنظيف فلل</h3></div></div><div class="gallery-item"><img src="gallery-(18).jpg" alt="تنظيف فلل"><div class="gallery-info"><h3>تنظيف فلل</h3></div></div>
+            <!-- 19-24 تنظيف الكنب --><div class="gallery-item"><img src="gallery-(19).jpg" alt="تنظيف كنب"><div class="gallery-info"><h3>تنظيف كنب</h3></div></div><div class="gallery-item"><img src="gallery-(20).jpg" alt="تنظيف كنب"><div class="gallery-info"><h3>تنظيف كنب</h3></div></div><div class="gallery-item"><img src="gallery-(21).jpg" alt="تنظيف كنب"><div class="gallery-info"><h3>تنظيف كنب</h3></div></div><div class="gallery-item"><img src="gallery-(22).jpg" alt="تنظيف كنب"><div class="gallery-info"><h3>تنظيف كنب</h3></div></div><div class="gallery-item"><img src="gallery-(23).jpg" alt="تنظيف كنب"><div class="gallery-info"><h3>تنظيف كنب</h3></div></div><div class="gallery-item"><img src="gallery-(24).jpg" alt="تنظيف كنب"><div class="gallery-info"><h3>تنظيف كنب</h3></div></div>
+            <!-- 25-30 تنظيف السجاد --><div class="gallery-item"><img src="gallery-(25).jpg" alt="تنظيف سجاد"><div class="gallery-info"><h3>تنظيف سجاد</h3></div></div><div class="gallery-item"><img src="gallery-(26).jpg" alt="تنظيف سجاد"><div class="gallery-info"><h3>تنظيف سجاد</h3></div></div><div class="gallery-item"><img src="gallery-(27).jpg" alt="تنظيف سجاد"><div class="gallery-info"><h3>تنظيف سجاد</h3></div></div><div class="gallery-item"><img src="gallery-(28).jpg" alt="تنظيف سجاد"><div class="gallery-info"><h3>تنظيف سجاد</h3></div></div><div class="gallery-item"><img src="gallery-(29).jpg" alt="تنظيف سجاد"><div class="gallery-info"><h3>تنظيف سجاد</h3></div></div><div class="gallery-item"><img src="gallery-(30).jpg" alt="تنظيف سجاد"><div class="gallery-info"><h3>تنظيف سجاد</h3></div></div>
+            <!-- 31-36 تنظيف الستائر --><div class="gallery-item"><img src="gallery-(31).jpg" alt="تنظيف ستائر"><div class="gallery-info"><h3>تنظيف ستائر</h3></div></div><div class="gallery-item"><img src="gallery-(32).jpg" alt="تنظيف ستائر"><div class="gallery-info"><h3>تنظيف ستائر</h3></div></div><div class="gallery-item"><img src="gallery-(33).jpg" alt="تنظيف ستائر"><div class="gallery-info"><h3>تنظيف ستائر</h3></div></div><div class="gallery-item"><img src="gallery-(34).jpg" alt="تنظيف ستائر"><div class="gallery-info"><h3>تنظيف ستائر</h3></div></div><div class="gallery-item"><img src="gallery-(35).jpg" alt="تنظيف ستائر"><div class="gallery-info"><h3>تنظيف ستائر</h3></div></div><div class="gallery-item"><img src="gallery-(36).jpg" alt="تنظيف ستائر"><div class="gallery-info"><h3>تنظيف ستائر</h3></div></div>
+            <!-- 37-42 تنظيف المراتب --><div class="gallery-item"><img src="gallery-(37).jpg" alt="تنظيف مراتب"><div class="gallery-info"><h3>تنظيف مراتب</h3></div></div><div class="gallery-item"><img src="gallery-(38).jpg" alt="تنظيف مراتب"><div class="gallery-info"><h3>تنظيف مراتب</h3></div></div><div class="gallery-item"><img src="gallery-(39).jpg" alt="تنظيف مراتب"><div class="gallery-info"><h3>تنظيف مراتب</h3></div></div><div class="gallery-item"><img src="gallery-(40).jpg" alt="تنظيف مراتب"><div class="gallery-info"><h3>تنظيف مراتب</h3></div></div><div class="gallery-item"><img src="gallery-(41).jpg" alt="تنظيف مراتب"><div class="gallery-info"><h3>تنظيف مراتب</h3></div></div><div class="gallery-item"><img src="gallery-(42).jpg" alt="تنظيف مراتب"><div class="gallery-info"><h3>تنظيف مراتب</h3></div></div>
+            <!-- 43-48 تنظيف المطابخ --><div class="gallery-item"><img src="gallery-(43).jpg" alt="تنظيف مطابخ"><div class="gallery-info"><h3>تنظيف مطابخ</h3></div></div><div class="gallery-item"><img src="gallery-(44).jpg" alt="تنظيف مطابخ"><div class="gallery-info"><h3>تنظيف مطابخ</h3></div></div><div class="gallery-item"><img src="gallery-(45).jpg" alt="تنظيف مطابخ"><div class="gallery-info"><h3>تنظيف مطابخ</h3></div></div><div class="gallery-item"><img src="gallery-(46).jpg" alt="تنظيف مطابخ"><div class="gallery-info"><h3>تنظيف مطابخ</h3></div></div><div class="gallery-item"><img src="gallery-(47).jpg" alt="تنظيف مطابخ"><div class="gallery-info"><h3>تنظيف مطابخ</h3></div></div><div class="gallery-item"><img src="gallery-(48).jpg" alt="تنظيف مطابخ"><div class="gallery-info"><h3>تنظيف مطابخ</h3></div></div>
+            <!-- 49-54 تنظيف الحمامات --><div class="gallery-item"><img src="gallery-(49).jpg" alt="تنظيف حمامات"><div class="gallery-info"><h3>تنظيف حمامات</h3></div></div><div class="gallery-item"><img src="gallery-(50).jpg" alt="تنظيف حمامات"><div class="gallery-info"><h3>تنظيف حمامات</h3></div></div><div class="gallery-item"><img src="gallery-(51).jpg" alt="تنظيف حمامات"><div class="gallery-info"><h3>تنظيف حمامات</h3></div></div><div class="gallery-item"><img src="gallery-(52).jpg" alt="تنظيف حمامات"><div class="gallery-info"><h3>تنظيف حمامات</h3></div></div><div class="gallery-item"><img src="gallery-(53).jpg" alt="تنظيف حمامات"><div class="gallery-info"><h3>تنظيف حمامات</h3></div></div><div class="gallery-item"><img src="gallery-(54).jpg" alt="تنظيف حمامات"><div class="gallery-info"><h3>تنظيف حمامات</h3></div></div>
+            <!-- 55-60 تنظيف الواجهات الزجاجية --><div class="gallery-item"><img src="gallery-(55).jpg" alt="تنظيف واجهات زجاجية"><div class="gallery-info"><h3>تنظيف واجهات زجاجية</h3></div></div><div class="gallery-item"><img src="gallery-(56).jpg" alt="تنظيف واجهات زجاجية"><div class="gallery-info"><h3>تنظيف واجهات زجاجية</h3></div></div><div class="gallery-item"><img src="gallery-(57).jpg" alt="تنظيف واجهات زجاجية"><div class="gallery-info"><h3>تنظيف واجهات زجاجية</h3></div></div><div class="gallery-item"><img src="gallery-(58).jpg" alt="تنظيف واجهات زجاجية"><div class="gallery-info"><h3>تنظيف واجهات زجاجية</h3></div></div><div class="gallery-item"><img src="gallery-(59).jpg" alt="تنظيف واجهات زجاجية"><div class="gallery-info"><h3>تنظيف واجهات زجاجية</h3></div></div><div class="gallery-item"><img src="gallery-(60).jpg" alt="تنظيف واجهات زجاجية"><div class="gallery-info"><h3>تنظيف واجهات زجاجية</h3></div></div>
+            <!-- 61-66 تنظيف واجهات المباني --><div class="gallery-item"><img src="gallery-(61).jpg" alt="تنظيف واجهات مباني"><div class="gallery-info"><h3>تنظيف واجهات مباني</h3></div></div><div class="gallery-item"><img src="gallery-(62).jpg" alt="تنظيف واجهات مباني"><div class="gallery-info"><h3>تنظيف واجهات مباني</h3></div></div><div class="gallery-item"><img src="gallery-(63).jpg" alt="تنظيف واجهات مباني"><div class="gallery-info"><h3>تنظيف واجهات مباني</h3></div></div><div class="gallery-item"><img src="gallery-(64).jpg" alt="تنظيف واجهات مباني"><div class="gallery-info"><h3>تنظيف واجهات مباني</h3></div></div><div class="gallery-item"><img src="gallery-(65).jpg" alt="تنظيف واجهات مباني"><div class="gallery-info"><h3>تنظيف واجهات مباني</h3></div></div><div class="gallery-item"><img src="gallery-(66).jpg" alt="تنظيف واجهات مباني"><div class="gallery-info"><h3>تنظيف واجهات مباني</h3></div></div>
+            <!-- 67-72 تنظيف الخزانات العلوية --><div class="gallery-item"><img src="gallery-(67).jpg" alt="تنظيف خزانات علوية"><div class="gallery-info"><h3>تنظيف خزانات علوية</h3></div></div><div class="gallery-item"><img src="gallery-(68).jpg" alt="تنظيف خزانات علوية"><div class="gallery-info"><h3>تنظيف خزانات علوية</h3></div></div><div class="gallery-item"><img src="gallery-(69).jpg" alt="تنظيف خزانات علوية"><div class="gallery-info"><h3>تنظيف خزانات علوية</h3></div></div><div class="gallery-item"><img src="gallery-(70).jpg" alt="تنظيف خزانات علوية"><div class="gallery-info"><h3>تنظيف خزانات علوية</h3></div></div><div class="gallery-item"><img src="gallery-(71).jpg" alt="تنظيف خزانات علوية"><div class="gallery-info"><h3>تنظيف خزانات علوية</h3></div></div><div class="gallery-item"><img src="gallery-(72).jpg" alt="تنظيف خزانات علوية"><div class="gallery-info"><h3>تنظيف خزانات علوية</h3></div></div>
+            <!-- 73-78 تنظيف الخزانات الأرضية --><div class="gallery-item"><img src="gallery-(73).jpg" alt="تنظيف خزانات أرضية"><div class="gallery-info"><h3>تنظيف خزانات أرضية</h3></div></div><div class="gallery-item"><img src="gallery-(74).jpg" alt="تنظيف خزانات أرضية"><div class="gallery-info"><h3>تنظيف خزانات أرضية</h3></div></div><div class="gallery-item"><img src="gallery-(75).jpg" alt="تنظيف خزانات أرضية"><div class="gallery-info"><h3>تنظيف خزانات أرضية</h3></div></div><div class="gallery-item"><img src="gallery-(76).jpg" alt="تنظيف خزانات أرضية"><div class="gallery-info"><h3>تنظيف خزانات أرضية</h3></div></div><div class="gallery-item"><img src="gallery-(77).jpg" alt="تنظيف خزانات أرضية"><div class="gallery-info"><h3>تنظيف خزانات أرضية</h3></div></div><div class="gallery-item"><img src="gallery-(78).jpg" alt="تنظيف خزانات أرضية"><div class="gallery-info"><h3>تنظيف خزانات أرضية</h3></div></div>
+            <!-- 79-84 تنظيف المساجد --><div class="gallery-item"><img src="gallery-(79).jpg" alt="تنظيف مساجد"><div class="gallery-info"><h3>تنظيف مساجد</h3></div></div><div class="gallery-item"><img src="gallery-(80).jpg" alt="تنظيف مساجد"><div class="gallery-info"><h3>تنظيف مساجد</h3></div></div><div class="gallery-item"><img src="gallery-(81).jpg" alt="تنظيف مساجد"><div class="gallery-info"><h3>تنظيف مساجد</h3></div></div><div class="gallery-item"><img src="gallery-(82).jpg" alt="تنظيف مساجد"><div class="gallery-info"><h3>تنظيف مساجد</h3></div></div><div class="gallery-item"><img src="gallery-(83).jpg" alt="تنظيف مساجد"><div class="gallery-info"><h3>تنظيف مساجد</h3></div></div><div class="gallery-item"><img src="gallery-(84).jpg" alt="تنظيف مساجد"><div class="gallery-info"><h3>تنظيف مساجد</h3></div></div>
+            <!-- 85-90 تنظيف المدارس --><div class="gallery-item"><img src="gallery-(85).jpg" alt="تنظيف مدارس"><div class="gallery-info"><h3>تنظيف مدارس</h3></div></div><div class="gallery-item"><img src="gallery-(86).jpg" alt="تنظيف مدارس"><div class="gallery-info"><h3>تنظيف مدارس</h3></div></div><div class="gallery-item"><img src="gallery-(87).jpg" alt="تنظيف مدارس"><div class="gallery-info"><h3>تنظيف مدارس</h3></div></div><div class="gallery-item"><img src="gallery-(88).jpg" alt="تنظيف مدارس"><div class="gallery-info"><h3>تنظيف مدارس</h3></div></div><div class="gallery-item"><img src="gallery-(89).jpg" alt="تنظيف مدارس"><div class="gallery-info"><h3>تنظيف مدارس</h3></div></div><div class="gallery-item"><img src="gallery-(90).jpg" alt="تنظيف مدارس"><div class="gallery-info"><h3>تنظيف مدارس</h3></div></div>
+            <!-- 91-96 تنظيف الشركات --><div class="gallery-item"><img src="gallery-(91).jpg" alt="تنظيف شركات"><div class="gallery-info"><h3>تنظيف شركات</h3></div></div><div class="gallery-item"><img src="gallery-(92).jpg" alt="تنظيف شركات"><div class="gallery-info"><h3>تنظيف شركات</h3></div></div><div class="gallery-item"><img src="gallery-(93).jpg" alt="تنظيف شركات"><div class="gallery-info"><h3>تنظيف شركات</h3></div></div><div class="gallery-item"><img src="gallery-(94).jpg" alt="تنظيف شركات"><div class="gallery-info"><h3>تنظيف شركات</h3></div></div><div class="gallery-item"><img src="gallery-(95).jpg" alt="تنظيف شركات"><div class="gallery-info"><h3>تنظيف شركات</h3></div></div><div class="gallery-item"><img src="gallery-(96).jpg" alt="تنظيف شركات"><div class="gallery-info"><h3>تنظيف شركات</h3></div></div>
+            <!-- 97-102 تنظيف بعد الحريق --><div class="gallery-item"><img src="gallery-(97).jpg" alt="تنظيف بعد الحريق"><div class="gallery-info"><h3>تنظيف بعد الحريق</h3></div></div><div class="gallery-item"><img src="gallery-(98).jpg" alt="تنظيف بعد الحريق"><div class="gallery-info"><h3>تنظيف بعد الحريق</h3></div></div><div class="gallery-item"><img src="gallery-(99).jpg" alt="تنظيف بعد الحريق"><div class="gallery-info"><h3>تنظيف بعد الحريق</h3></div></div><div class="gallery-item"><img src="gallery-(100).jpg" alt="تنظيف بعد الحريق"><div class="gallery-info"><h3>تنظيف بعد الحريق</h3></div></div><div class="gallery-item"><img src="gallery-(101).jpg" alt="تنظيف بعد الحريق"><div class="gallery-info"><h3>تنظيف بعد الحريق</h3></div></div><div class="gallery-item"><img src="gallery-(102).jpg" alt="تنظيف بعد الحريق"><div class="gallery-info"><h3>تنظيف بعد الحريق</h3></div></div>
+            <!-- 103-108 تنظيف قبل الانتقال --><div class="gallery-item"><img src="gallery-(103).jpg" alt="تنظيف قبل الانتقال"><div class="gallery-info"><h3>تنظيف قبل الانتقال</h3></div></div><div class="gallery-item"><img src="gallery-(104).jpg" alt="تنظيف قبل الانتقال"><div class="gallery-info"><h3>تنظيف قبل الانتقال</h3></div></div><div class="gallery-item"><img src="gallery-(105).jpg" alt="تنظيف قبل الانتقال"><div class="gallery-info"><h3>تنظيف قبل الانتقال</h3></div></div><div class="gallery-item"><img src="gallery-(106).jpg" alt="تنظيف قبل الانتقال"><div class="gallery-info"><h3>تنظيف قبل الانتقال</h3></div></div><div class="gallery-item"><img src="gallery-(107).jpg" alt="تنظيف قبل الانتقال"><div class="gallery-info"><h3>تنظيف قبل الانتقال</h3></div></div><div class="gallery-item"><img src="gallery-(108).jpg" alt="تنظيف قبل الانتقال"><div class="gallery-info"><h3>تنظيف قبل الانتقال</h3></div></div>
+            <!-- 109-114 تنظيف بعد التشطيب --><div class="gallery-item"><img src="gallery-(109).jpg" alt="تنظيف بعد التشطيب"><div class="gallery-info"><h3>تنظيف بعد التشطيب</h3></div></div><div class="gallery-item"><img src="gallery-(110).jpg" alt="تنظيف بعد التشطيب"><div class="gallery-info"><h3>تنظيف بعد التشطيب</h3></div></div><div class="gallery-item"><img src="gallery-(111).jpg" alt="تنظيف بعد التشطيب"><div class="gallery-info"><h3>تنظيف بعد التشطيب</h3></div></div><div class="gallery-item"><img src="gallery-(112).jpg" alt="تنظيف بعد التشطيب"><div class="gallery-info"><h3>تنظيف بعد التشطيب</h3></div></div><div class="gallery-item"><img src="gallery-(113).jpg" alt="تنظيف بعد التشطيب"><div class="gallery-info"><h3>تنظيف بعد التشطيب</h3></div></div><div class="gallery-item"><img src="gallery-(114).jpg" alt="تنظيف بعد التشطيب"><div class="gallery-info"><h3>تنظيف بعد التشطيب</h3></div></div>
+            <!-- 115-120 مكافحة الحشرات --><div class="gallery-item"><img src="gallery-(115).jpg" alt="مكافحة حشرات"><div class="gallery-info"><h3>مكافحة حشرات</h3></div></div><div class="gallery-item"><img src="gallery-(116).jpg" alt="مكافحة حشرات"><div class="gallery-info"><h3>مكافحة حشرات</h3></div></div><div class="gallery-item"><img src="gallery-(117).jpg" alt="مكافحة حشرات"><div class="gallery-info"><h3>مكافحة حشرات</h3></div></div><div class="gallery-item"><img src="gallery-(118).jpg" alt="مكافحة حشرات"><div class="gallery-info"><h3>مكافحة حشرات</h3></div></div><div class="gallery-item"><img src="gallery-(119).jpg" alt="مكافحة حشرات"><div class="gallery-info"><h3>مكافحة حشرات</h3></div></div><div class="gallery-item"><img src="gallery-(120).jpg" alt="مكافحة حشرات"><div class="gallery-info"><h3>مكافحة حشرات</h3></div></div>
+            <!-- 121-126 تعقيم المنشآت --><div class="gallery-item"><img src="gallery-(121).jpg" alt="تعقيم منشآت"><div class="gallery-info"><h3>تعقيم منشآت</h3></div></div><div class="gallery-item"><img src="gallery-(122).jpg" alt="تعقيم منشآت"><div class="gallery-info"><h3>تعقيم منشآت</h3></div></div><div class="gallery-item"><img src="gallery-(123).jpg" alt="تعقيم منشآت"><div class="gallery-info"><h3>تعقيم منشآت</h3></div></div><div class="gallery-item"><img src="gallery-(124).jpg" alt="تعقيم منشآت"><div class="gallery-info"><h3>تعقيم منشآت</h3></div></div><div class="gallery-item"><img src="gallery-(125).jpg" alt="تعقيم منشآت"><div class="gallery-info"><h3>تعقيم منشآت</h3></div></div><div class="gallery-item"><img src="gallery-(126).jpg" alt="تعقيم منشآت"><div class="gallery-info"><h3>تعقيم منشآت</h3></div></div>
+            <!-- 127-132 كشف تسربات المياه --><div class="gallery-item"><img src="gallery-(127).jpg" alt="كشف تسربات مياه"><div class="gallery-info"><h3>كشف تسربات مياه</h3></div></div><div class="gallery-item"><img src="gallery-(128).jpg" alt="كشف تسربات مياه"><div class="gallery-info"><h3>كشف تسربات مياه</h3></div></div><div class="gallery-item"><img src="gallery-(129).jpg" alt="كشف تسربات مياه"><div class="gallery-info"><h3>كشف تسربات مياه</h3></div></div><div class="gallery-item"><img src="gallery-(130).jpg" alt="كشف تسربات مياه"><div class="gallery-info"><h3>كشف تسربات مياه</h3></div></div><div class="gallery-item"><img src="gallery-(131).jpg" alt="كشف تسربات مياه"><div class="gallery-info"><h3>كشف تسربات مياه</h3></div></div><div class="gallery-item"><img src="gallery-(132).jpg" alt="كشف تسربات مياه"><div class="gallery-info"><h3>كشف تسربات مياه</h3></div></div>
+            <!-- 133-138 عزل الأسطح والخزانات --><div class="gallery-item"><img src="gallery-(133).jpg" alt="عزل أسطح وخزانات"><div class="gallery-info"><h3>عزل أسطح وخزانات</h3></div></div><div class="gallery-item"><img src="gallery-(134).jpg" alt="عزل أسطح وخزانات"><div class="gallery-info"><h3>عزل أسطح وخزانات</h3></div></div><div class="gallery-item"><img src="gallery-(135).jpg" alt="عزل أسطح وخزانات"><div class="gallery-info"><h3>عزل أسطح وخزانات</h3></div></div><div class="gallery-item"><img src="gallery-(136).jpg" alt="عزل أسطح وخزانات"><div class="gallery-info"><h3>عزل أسطح وخزانات</h3></div></div><div class="gallery-item"><img src="gallery-(137).jpg" alt="عزل أسطح وخزانات"><div class="gallery-info"><h3>عزل أسطح وخزانات</h3></div></div><div class="gallery-item"><img src="gallery-(138).jpg" alt="عزل أسطح وخزانات"><div class="gallery-info"><h3>عزل أسطح وخزانات</h3></div></div>
+            <!-- 139-144 عقود النظافة الشهرية --><div class="gallery-item"><img src="gallery-(139).jpg" alt="عقود نظافة شهرية"><div class="gallery-info"><h3>عقود نظافة شهرية</h3></div></div><div class="gallery-item"><img src="gallery-(140).jpg" alt="عقود نظافة شهرية"><div class="gallery-info"><h3>عقود نظافة شهرية</h3></div></div><div class="gallery-item"><img src="gallery-(141).jpg" alt="عقود نظافة شهرية"><div class="gallery-info"><h3>عقود نظافة شهرية</h3></div></div><div class="gallery-item"><img src="gallery-(142).jpg" alt="عقود نظافة شهرية"><div class="gallery-info"><h3>عقود نظافة شهرية</h3></div></div><div class="gallery-item"><img src="gallery-(143).jpg" alt="عقود نظافة شهرية"><div class="gallery-info"><h3>عقود نظافة شهرية</h3></div></div><div class="gallery-item"><img src="gallery-(144).jpg" alt="عقود نظافة شهرية"><div class="gallery-info"><h3>عقود نظافة شهرية</h3></div></div>
+            <!-- 145-150 تنظيف المستشفيات --><div class="gallery-item"><img src="gallery-(145).jpg" alt="تنظيف مستشفيات"><div class="gallery-info"><h3>تنظيف مستشفيات</h3></div></div><div class="gallery-item"><img src="gallery-(146).jpg" alt="تنظيف مستشفيات"><div class="gallery-info"><h3>تنظيف مستشفيات</h3></div></div><div class="gallery-item"><img src="gallery-(147).jpg" alt="تنظيف مستشفيات"><div class="gallery-info"><h3>تنظيف مستشفيات</h3></div></div><div class="gallery-item"><img src="gallery-(148).jpg" alt="تنظيف مستشفيات"><div class="gallery-info"><h3>تنظيف مستشفيات</h3></div></div><div class="gallery-item"><img src="gallery-(149).jpg" alt="تنظيف مستشفيات"><div class="gallery-info"><h3>تنظيف مستشفيات</h3></div></div><div class="gallery-item"><img src="gallery-(150).jpg" alt="تنظيف مستشفيات"><div class="gallery-info"><h3>تنظيف مستشفيات</h3></div></div>
         </div>
     </section>
 
-    <section class="cta">
-        <h2>هل تحتاج خدمة احترافية؟</h2>
-        <a href="https://wa.me/201210004556" class="btn-hero">📱 تواصل معنا واتساب</a>
-    </section>
-
     <footer>
-        <p>جميع الحقوق محفوظة © 2024 <span>شركة براقيو</span></p>
+        <p>جميع الحقوق محفوظة © 2024 <span>شركة براقيو</span> - الرياض</p>
     </footer>
 
-  
+    <div class="floating-container">
+        <a href="tel:+201210004556" class="float-btn float-call" title="اتصال">
+            📞
+            <span class="tooltip">اتصل الآن</span>
+        </a>
+        <a href="https://wa.me/201210004556" class="float-btn float-whatsapp" target="_blank" title="واتساب">
+            💬
+            <span class="tooltip">واتساب</span>
+        </a>
+    </div>
 
     <script>
         function toggleMenu() {
             document.getElementById('navLinks').classList.toggle('active');
         }
     </script>
-    <div class="floating-container">
-    <a href="tel:+201210004556" class="float-btn float-call" title="اتصال">
-        📞
-        <span class="tooltip">اتصل الآن</span>
-    </a>
-    <a href="https://wa.me/201210004556" class="float-btn float-whatsapp" target="_blank" title="واتساب">
-        💬
-        <span class="tooltip">واتساب</span>
-    </a>
-</div>
 
 </body>
 </html>
